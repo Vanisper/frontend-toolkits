@@ -1,0 +1,54 @@
+{
+    "chore": {
+        "description": "Chore | 构建/工程依赖/工具",
+        "emoji": "🚀"
+    },
+    "ci": {
+        "description": "Continuous Integration | CI 配置",
+        "emoji": "👷"
+    },
+    "docs": {
+        "description": "Documentation | 文档",
+        "emoji": "📚"
+    },
+    "feat": {
+        "description": "Features | 新功能",
+        "emoji": "✨"
+    },
+    "fix": {
+        "description": "Bug Fixes | Bug 修复",
+        "emoji": "🐛"
+    },
+    "perf": {
+        "description": "Performance Improvements | 性能优化",
+        "emoji": "⚡️"
+    },
+    "refactor": {
+        "description": "Code Refactoring | 代码重构",
+        "emoji": "♻️ "
+    },
+    "release": {
+        "description": "Create a release commit | 发版提交",
+        "emoji": "🔖"
+    },
+    "style": {
+        "description": "Styles | UI样式",
+        "emoji": "💄"
+    },
+    "revert": {
+        "description": "Revert | 回退",
+        "emoji": "⏪"
+    },
+    "build": {
+        "description": "Build System | 打包构建",
+        "emoji": "📦"
+    },
+    "test": {
+        "description": "Tests | 测试",
+        "emoji": "✅"
+    },
+    "init": {
+        "description": "Initial commit | 初始提交",
+        "emoji": "🎉"
+    }
+}

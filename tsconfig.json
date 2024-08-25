@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"strict": true,
+		"esModuleInterop": true,
+		"allowJs": true,
+		"baseUrl": ".",
+		"paths": {
+			"@frontend-toolkits/*": ["packages/*/src"]
+		}
+	},
+	"include": ["packages/**/*"],
+	"exclude": ["node_modules", "packages/example/**/*"],
+	"ts-node": {
+		"esm": true
+	}
+}

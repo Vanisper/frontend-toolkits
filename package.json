@@ -1,0 +1,46 @@
+{
+	"name": "frontend-toolkits",
+	"type": "module",
+	"version": "0.0.0",
+	"private": true,
+	"author": {
+		"name": "Vanisper",
+		"email": "273266469@qq.com"
+	},
+	"engines": {
+		"node": "20 || >=22"
+	},
+	"scripts": {
+		"f": "pnpm -F",
+		"f:core": "pnpm -F core",
+		"preinstall": "npx only-allow pnpm",
+		"prepare": "lefthook install",
+		"commit": "git-cz",
+		"changeset": "changeset",
+		"version-packages": "changeset version",
+		"build": "pnpm --filter=@qftjs/* run build",
+		"release": "pnpm version-packages && pnpm release:only",
+		"release:only": "pnpm build && changeset publish",
+		"lint": "biome lint",
+		"lint:check": "biome check --write",
+		"lint:fix": "biome check --write --unsafe",
+		"format": "biome format --write",
+		"clear": "rimraf 'packages/*/{lib,node_modules}' && rimraf node_modules"
+	},
+	"config": {
+		"commitizen": {
+			"path": "@commitlint/cz-commitlint"
+		}
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"@changesets/cli": "^2.27.7",
+		"@commitlint/cli": "^19.4.0",
+		"@commitlint/config-conventional": "^19.2.2",
+		"@commitlint/cz-commitlint": "^19.4.0",
+		"@commitlint/types": "^19.0.3",
+		"commitizen": "^4.3.0",
+		"lefthook": "^1.7.14",
+		"rimraf": "^6.0.1"
+	}
+}
