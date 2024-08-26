@@ -26,7 +26,8 @@
       },
       "complexity": {
         "noStaticOnlyClass": "warn",
-        "noBannedTypes": "off"
+        "noBannedTypes": "off",
+        "noThisInStatic": "off"
       }
     }
   },
