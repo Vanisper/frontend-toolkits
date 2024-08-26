@@ -26,7 +26,7 @@ export class AirAssert {
    * @param title (可选)错误标题
    */
   static whenNull(value: any, message: string, title?: string) {
-    return AirAssert.when(value === null, message, title);
+    return this.when(value === null, message, title);
   }
 
   /**
@@ -36,6 +36,6 @@ export class AirAssert {
    * @param title (可选)错误标题
    */
   static whenUndefined(value: any, message: string, title?: string) {
-    return AirAssert.when(value === undefined, message, title);
+    return this.when(value === undefined, message, title);
   }
 }

@@ -17,7 +17,7 @@ export class AirDecorator {
    * @param classConfig 配置的参数
    */
   static setClassConfig(target: any, classConfigKey: string, classConfig: any) {
-    AirDecorator.setProperty(target.prototype, classConfigKey, classConfig);
+    this.setProperty(target.prototype, classConfigKey, classConfig);
   }
 
   /**
@@ -41,7 +41,7 @@ export class AirDecorator {
         if (!superClass || superClass.constructor.name === "AirModel") {
           return undefined;
         }
-        return AirDecorator.getClassConfig(superClass, classConfigKey);
+        return this.getClassConfig(superClass, classConfigKey);
       }
       return classConfig;
     }
@@ -54,7 +54,7 @@ export class AirDecorator {
     }
 
     return {
-      ...AirDecorator.getClassConfig(
+      ...this.getClassConfig(
         superClass,
         classConfigKey,
         defaultValue,
@@ -80,9 +80,9 @@ export class AirDecorator {
     fieldListKey?: string,
   ) {
     if (fieldListKey) {
-      AirDecorator.setFieldDecoration(target, key, fieldListKey);
+      this.setFieldDecoration(target, key, fieldListKey);
     }
-    AirDecorator.setProperty(target, `${fieldConfigKey}[${key}]`, fieldConfig);
+    this.setProperty(target, `${fieldConfigKey}[${key}]`, fieldConfig);
   }
 
   /**
@@ -112,7 +112,7 @@ export class AirDecorator {
       if (!superClass || superClass.constructor.name === "AirModel") {
         return undefined;
       }
-      return AirDecorator.getFieldConfig(superClass, key, fieldConfigKey);
+      return this.getFieldConfig(superClass, key, fieldConfigKey);
     }
 
     // 对象配置
@@ -123,7 +123,7 @@ export class AirDecorator {
       return {};
     }
     return {
-      ...AirDecorator.getFieldConfig(superClass, key, fieldConfigKey, true),
+      ...this.getFieldConfig(superClass, key, fieldConfigKey, true),
       ...fieldConfig,
     };
   }
@@ -147,7 +147,7 @@ export class AirDecorator {
     if (!superClass || superClass.constructor.name === "AirModel") {
       return list;
     }
-    return AirDecorator.getFieldList(superClass, fieldConfigKey, list);
+    return this.getFieldList(superClass, fieldConfigKey, list);
   }
 
   /**
@@ -167,21 +167,17 @@ export class AirDecorator {
   ) {
     const fieldConfigList: T[] = [];
     if (keyList.length === 0) {
-      keyList = AirDecorator.getFieldList(target, fieldListKey);
+      keyList = this.getFieldList(target, fieldListKey);
     }
     for (const fieldName of keyList) {
-      const config = AirDecorator.getFieldConfig(
-        target,
-        fieldName,
-        fieldConfigKey,
-      );
+      const config = this.getFieldConfig(target, fieldName, fieldConfigKey);
       if (config) {
         const defaultConfig = new FieldConfigClass();
         const result: IJson = {};
         for (const configKey of Object.keys({ ...defaultConfig, config })) {
           if (configKey !== "key") {
             result[configKey] =
-              AirDecorator.getFieldConfigValue(
+              this.getFieldConfigValue(
                 target,
                 fieldConfigKey,
                 config.key,
@@ -220,12 +216,7 @@ export class AirDecorator {
     if (!superClass || superClass.constructor.name === "AirModel") {
       return undefined;
     }
-    return AirDecorator.getFieldConfigValue(
-      superClass,
-      fieldConfigKey,
-      key,
-      configKey,
-    );
+    return this.getFieldConfigValue(superClass, fieldConfigKey, key, configKey);
   }
 
   /**
@@ -256,6 +247,6 @@ export class AirDecorator {
   ) {
     const list: string[] = Reflect.get(target, fieldListKey) || [];
     list.push(key);
-    AirDecorator.setProperty(target, fieldListKey, list);
+    this.setProperty(target, fieldListKey, list);
   }
 }

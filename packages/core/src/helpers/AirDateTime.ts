@@ -27,7 +27,7 @@ export class AirDateTime {
    * @param date (可选)Date对象/时间字符串
    */
   static getUnixTimeStamps(date?: Date | string): number {
-    return Math.round(AirDateTime.getMilliTimeStamps(date) / 1000);
+    return Math.round(this.getMilliTimeStamps(date) / 1000);
   }
 
   /**
@@ -60,7 +60,7 @@ export class AirDateTime {
     timeStamp: number,
     formatString?: AirDateTimeFormatter | string,
   ): string {
-    return AirDateTime.formatFromDate(new Date(timeStamp * 1000), formatString);
+    return this.formatFromDate(new Date(timeStamp * 1000), formatString);
   }
 
   /**
@@ -72,7 +72,7 @@ export class AirDateTime {
     timeStamp: number,
     formatString?: AirDateTimeFormatter | string,
   ): string {
-    return AirDateTime.formatFromDate(new Date(timeStamp), formatString);
+    return this.formatFromDate(new Date(timeStamp), formatString);
   }
 
   /**
@@ -121,12 +121,12 @@ export class AirDateTime {
    * @param date Date对象或时间字符串
    */
   static getFriendlyDateTime(date: Date | string | number): string {
-    const nowTimeStamps: number = AirDateTime.getUnixTimeStamps(new Date());
+    const nowTimeStamps: number = this.getUnixTimeStamps(new Date());
     let oldTimeStamp: number;
     if (typeof date === "number") {
       oldTimeStamp = Number.parseInt((date / 1000).toString(), 10);
     } else {
-      oldTimeStamp = AirDateTime.getUnixTimeStamps(date);
+      oldTimeStamp = this.getUnixTimeStamps(date);
     }
     const diffTimeStamp = Math.abs(nowTimeStamps - oldTimeStamp);
     if (oldTimeStamp > nowTimeStamps) {

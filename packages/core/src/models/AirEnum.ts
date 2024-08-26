@@ -58,7 +58,7 @@ export class AirEnum<K extends AirEnumKey = number> implements IDictionary {
    * @param defaultLabel 默认Label
    */
   static getLabel(key: AirEnumKey, defaultLabel = "-"): string {
-    return AirEnum.get(key)?.label || defaultLabel;
+    return this.get(key)?.label || defaultLabel;
   }
 
   /**
@@ -66,7 +66,7 @@ export class AirEnum<K extends AirEnumKey = number> implements IDictionary {
    * @param key Key
    */
   static isDisabled(key: AirEnumKey): boolean | undefined {
-    return (AirEnum as any).get(key).disabled;
+    return (this as any).get(key).disabled;
   }
 
   /**
@@ -79,9 +79,7 @@ export class AirEnum<K extends AirEnumKey = number> implements IDictionary {
     ) => E,
     key: AirEnumKey,
   ): E | null {
-    return (
-      (AirEnum as any).toArray().find((item: E) => item.key === key) || null
-    );
+    return (this as any).toArray().find((item: E) => item.key === key) || null;
   }
 
   /**
@@ -93,7 +91,7 @@ export class AirEnum<K extends AirEnumKey = number> implements IDictionary {
       ...args: any[]
     ) => E,
   ): E[] {
-    return Object.values(AirEnum).filter((item) => item instanceof AirEnum);
+    return Object.values(this).filter((item) => item instanceof this);
   }
 
   /**
@@ -106,7 +104,7 @@ export class AirEnum<K extends AirEnumKey = number> implements IDictionary {
     ) => D,
   ): AirDictionaryArray<D> {
     return AirDictionaryArray.createCustom<D>(
-      Object.values(AirEnum).filter((item) => item instanceof AirEnum),
+      Object.values(this).filter((item) => item instanceof this),
     );
   }
 }

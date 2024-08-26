@@ -27,7 +27,7 @@ export class AirModel<P extends string = string> {
    * @param json JSON
    */
   static fromJson<T extends AirModel>(this: new () => T, json: IJson = {}): T {
-    const instance: T = Object.assign(new AirModel()) as T;
+    const instance: T = Object.assign(new this()) as T;
     return AirModel.parse<T>(instance, json);
   }
 
@@ -44,11 +44,11 @@ export class AirModel<P extends string = string> {
     const instanceList: T[] = [];
     if (Array.isArray(jsonArray)) {
       for (let i = 0; i < jsonArray.length; i += 1) {
-        const instance: T = Object.assign(new AirModel()) as T;
+        const instance: T = Object.assign(new this()) as T;
         instanceList.push(AirModel.parse(instance, jsonArray[i]));
       }
     } else {
-      const instance: T = Object.assign(new AirModel()) as T;
+      const instance: T = Object.assign(new this()) as T;
       instanceList.push(AirModel.parse(instance, jsonArray));
     }
     return instanceList;
@@ -96,7 +96,7 @@ export class AirModel<P extends string = string> {
           for (let i = 0; i < fieldData.length; i += 1) {
             // 如果标记了类 需要递归处理
             if (FieldTypeClass) {
-              fieldValueList[i] = AirModel.parse(
+              fieldValueList[i] = this.parse(
                 new FieldTypeClass() as AirModel,
                 fieldData[i],
               );
@@ -142,7 +142,7 @@ export class AirModel<P extends string = string> {
           break;
         default:
           // 是对象 需要递归转换
-          (instance as any)[fieldKey] = AirModel.parse(
+          (instance as any)[fieldKey] = this.parse(
             new FieldTypeClass() as AirModel,
             fieldData,
           );
@@ -164,14 +164,11 @@ export class AirModel<P extends string = string> {
    * # 创建一个当前类的实例
    * @param recoverBy (可选)初始化用于覆盖对象实例的JSON
    */
-  // eslint-disable-next-line no-unused-vars
   static newInstance<T extends AirModel>(
     this: new () => T,
     recoverBy?: IJson,
   ): T {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const instance = Object.assign(new AirModel(), null) as T;
+    const instance = Object.assign(new this(), null) as T;
     if (recoverBy) {
       return instance.recoverBy(recoverBy);
     }
@@ -183,7 +180,7 @@ export class AirModel<P extends string = string> {
    * 可使用 @Model 装饰器修饰 如无修饰 则直接返回类名
    */
   static getModelName() {
-    return AirModel.newInstance().getModelName();
+    return this.newInstance().getModelName();
   }
 
   /**
@@ -191,7 +188,7 @@ export class AirModel<P extends string = string> {
    * @see getModelName()
    */
   static getClassName() {
-    return AirModel.getModelName();
+    return this.getModelName();
   }
 
   /**
@@ -200,13 +197,13 @@ export class AirModel<P extends string = string> {
    * 可使用 @FieldName 装饰器修饰 如无修饰 则直接返回属性名
    */
   static getFieldName(fieldKey: string): string {
-    return AirModel.newInstance().getFieldName(fieldKey);
+    return this.newInstance().getFieldName(fieldKey);
   }
 
   static getDictionary<T extends IDictionary>(
     fieldKey: string,
   ): AirDictionaryArray<T> {
-    return getDictionary(AirModel.newInstance(), fieldKey);
+    return getDictionary(this.newInstance(), fieldKey);
   }
 
   /**

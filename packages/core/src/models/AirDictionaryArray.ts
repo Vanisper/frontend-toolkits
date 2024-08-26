@@ -13,7 +13,7 @@ export class AirDictionaryArray<
    * @param list 字典数组
    */
   static create(list: IDictionary[]): AirDictionaryArray {
-    return AirDictionaryArray.createCustom<IDictionary>(list);
+    return this.createCustom<IDictionary>(list);
   }
 
   /**

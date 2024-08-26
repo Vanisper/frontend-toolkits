@@ -56,9 +56,7 @@ export class AirClassTransformer {
     jsonArray: IJson[],
     TargetClass: AirClassConstructor<T>,
   ): T[] {
-    return jsonArray.map((json) =>
-      AirClassTransformer.parse(json, TargetClass),
-    );
+    return jsonArray.map((json) => this.parse(json, TargetClass));
   }
 
   /**
@@ -70,7 +68,7 @@ export class AirClassTransformer {
     from: F,
     TargetClass: AirClassConstructor<M>,
   ): M {
-    return AirClassTransformer.parse(from.toJson(), TargetClass);
+    return this.parse(from.toJson(), TargetClass);
   }
 
   /**

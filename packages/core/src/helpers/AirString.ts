@@ -17,7 +17,7 @@ export class AirString {
     let len = 0;
     for (let i = 0; i < str.length; ) {
       const codePoint = str.codePointAt(i) as number;
-      i += codePoint > AirString.SINGLE_POINT_LENGTH ? 2 : 1;
+      i += codePoint > this.SINGLE_POINT_LENGTH ? 2 : 1;
       len += 1;
     }
     return len;
@@ -39,7 +39,7 @@ export class AirString {
       if (current === index) {
         return String.fromCodePoint(codePoint);
       }
-      i += codePoint > AirString.SINGLE_POINT_LENGTH ? 2 : 1;
+      i += codePoint > this.SINGLE_POINT_LENGTH ? 2 : 1;
       current += 1;
     }
     throw new Error("AirString.get() Error: index out of range");
@@ -51,11 +51,7 @@ export class AirString {
    * @param from 截取开始位置
    * @param to 截取结束位置
    */
-  static slice(
-    str: string,
-    from = 0,
-    to = AirString.getLength(str) - 1,
-  ): string {
+  static slice(str: string, from = 0, to = this.getLength(str) - 1): string {
     let s = "";
     if (from < 0) {
       throw new Error("AirString.get() Error: from error");
@@ -63,14 +59,14 @@ export class AirString {
     if (to < 0) {
       throw new Error("AirString.get() Error: to error");
     }
-    if (from > AirString.getLength(str) - 1) {
+    if (from > this.getLength(str) - 1) {
       throw new Error("AirString.get() Error: from out of range");
     }
-    if (to > AirString.getLength(str) - 1) {
+    if (to > this.getLength(str) - 1) {
       throw new Error("AirString.get() Error: to out of range");
     }
     for (let i = from; i <= to; i += 1) {
-      s += AirString.get(str, i);
+      s += this.get(str, i);
     }
     return s;
   }

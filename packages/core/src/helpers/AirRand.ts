@@ -33,7 +33,7 @@ export class AirRand {
   static getRandNumber(min: number, max: number): number {
     return Number.parseInt(
       (min + Math.random() * (max - min)).toString(),
-      AirRand.DEFAULT_RADIX,
+      this.DEFAULT_RADIX,
     );
   }
 
@@ -45,10 +45,10 @@ export class AirRand {
     let str = "";
     for (let i = 0; i < length; i += 1) {
       str +=
-        AirRand.STRING_OF_NUMBER[
+        this.STRING_OF_NUMBER[
           Number.parseInt(
-            (Math.random() * AirRand.STRING_OF_NUMBER.length).toString(),
-            AirRand.DEFAULT_RADIX,
+            (Math.random() * this.STRING_OF_NUMBER.length).toString(),
+            this.DEFAULT_RADIX,
           )
         ];
     }
@@ -64,10 +64,10 @@ export class AirRand {
     let str = "";
     for (let i = 0; i < length; i += 1) {
       str +=
-        AirRand.STRING_OF_LOWER_CHAR[
+        this.STRING_OF_LOWER_CHAR[
           Number.parseInt(
-            (Math.random() * AirRand.STRING_OF_LOWER_CHAR.length).toString(),
-            AirRand.DEFAULT_RADIX,
+            (Math.random() * this.STRING_OF_LOWER_CHAR.length).toString(),
+            this.DEFAULT_RADIX,
           )
         ];
     }
@@ -80,14 +80,13 @@ export class AirRand {
    */
   static getRandMixedCharString(length = 32): string {
     let str = "";
-    const strStorage =
-      AirRand.STRING_OF_LOWER_CHAR + AirRand.STRING_OF_UPPER_CHAR;
+    const strStorage = this.STRING_OF_LOWER_CHAR + this.STRING_OF_UPPER_CHAR;
     for (let i = 0; i < length; i += 1) {
       str +=
         strStorage[
           Number.parseInt(
             (Math.random() * strStorage.length).toString(),
-            AirRand.DEFAULT_RADIX,
+            this.DEFAULT_RADIX,
           )
         ];
     }
@@ -101,13 +100,13 @@ export class AirRand {
    */
   static getRandNumberAndCharString(length = 32, isUpper = false): string {
     let str = "";
-    const strStorage = AirRand.STRING_OF_LOWER_CHAR + AirRand.STRING_OF_NUMBER;
+    const strStorage = this.STRING_OF_LOWER_CHAR + this.STRING_OF_NUMBER;
     for (let i = 0; i < length; i += 1) {
       str +=
         strStorage[
           Number.parseInt(
             (Math.random() * strStorage.length).toString(),
-            AirRand.DEFAULT_RADIX,
+            this.DEFAULT_RADIX,
           )
         ];
     }
@@ -121,15 +120,15 @@ export class AirRand {
   static getRandNumberAndMixedCharString(length = 32): string {
     let str = "";
     const strStorage =
-      AirRand.STRING_OF_LOWER_CHAR +
-      AirRand.STRING_OF_NUMBER +
-      AirRand.STRING_OF_UPPER_CHAR;
+      this.STRING_OF_LOWER_CHAR +
+      this.STRING_OF_NUMBER +
+      this.STRING_OF_UPPER_CHAR;
     for (let i = 0; i < length; i += 1) {
       str +=
         strStorage[
           Number.parseInt(
             (Math.random() * strStorage.length).toString(),
-            AirRand.DEFAULT_RADIX,
+            this.DEFAULT_RADIX,
           )
         ];
     }

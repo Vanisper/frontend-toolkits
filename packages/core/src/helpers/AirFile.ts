@@ -36,9 +36,9 @@ export class AirFile {
     if (size <= 0) {
       return "未知大小";
     }
-    for (let i = 0; i < AirFile.FILE_UNIT_LIST.length; i += 1) {
-      if (size < AirFile.FILE_SIZE_CALCULATION_CONSTANT ** (i + 1)) {
-        return `${(size / AirFile.FILE_SIZE_CALCULATION_CONSTANT ** i).toFixed(fractionDigits)}${AirFile.FILE_UNIT_LIST[i]}`;
+    for (let i = 0; i < this.FILE_UNIT_LIST.length; i += 1) {
+      if (size < this.FILE_SIZE_CALCULATION_CONSTANT ** (i + 1)) {
+        return `${(size / this.FILE_SIZE_CALCULATION_CONSTANT ** i).toFixed(fractionDigits)}${this.FILE_UNIT_LIST[i]}`;
       }
     }
     return "文件过大";
