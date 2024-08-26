@@ -12,7 +12,7 @@
 	"scripts": {
 		"f": "pnpm -F",
 		"preinstall": "npx only-allow pnpm",
-		"prepare": "lefthook install",
+		"prepare": "npx lefthook install",
 		"commit": "git-cz",
 		"lint": "biome lint",
 		"lint:check": "biome check --write",
