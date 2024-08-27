@@ -1,0 +1,15 @@
+{
+    "editor.fontFamily": "Monaco, 'Apple Color Emoji', 'Courier New', monospace",
+    "terminal.integrated.fontFamily": "Monaco, 'Apple Color Emoji', 'Courier New', monospace",
+    // "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+    // "terminal.integrated.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+      "vite.config.*": "pages.config.*, manifest.config.*, uno.config.*, volar.config.*, *.env, .env.*",
+      "env.d.*": "shims.d.*, uni-pages.d.*, components.d.*, auto-imports.d*, manifest.json, pages.json, theme.json",
+      "package.json": "pnpm-*.yaml, .gitignore, .gitattributes, .npmrc, .nvmrc",
+      "biome.json": "biome.json, commitlint.config.ts, lefthook.yml"
+    },
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "vue.server.hybridMode": false,
+}

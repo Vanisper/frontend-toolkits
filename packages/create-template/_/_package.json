@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "npx lefthook install",
+    "commit": "git-cz",
+    "lint": "biome lint",
+    "lint:check": "biome check --write",
+    "lint:fix": "biome check --write --unsafe",
+    "format": "biome format --write",
+    "clear": "rimraf 'packages/*/{lib,node_modules}' && rimraf node_modules"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cz-commitlint": "^19.4.0",
+    "@commitlint/types": "^19.0.3",
+    "commitizen": "^4.3.0",
+    "typescript": "^5.5.3",
+    "@types/node": "^20.11.24",
+    "lefthook": "^1.7.14",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.21.0"
+  }
+}
