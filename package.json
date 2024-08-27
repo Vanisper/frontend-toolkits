@@ -7,7 +7,7 @@
 		"email": "273266469@qq.com"
 	},
 	"engines": {
-		"node": "20 || >=22"
+		"node": "^18.0.0 || >=20.0.0"
 	},
 	"scripts": {
 		"f": "pnpm -F",
