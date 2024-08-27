@@ -33,6 +33,6 @@
   },
   "files": {
     "include": ["packages/**/*.ts"],
-    "ignore": ["**/node_modules/**"]
+    "ignore": ["**/node_modules/**", "**/dist/**"]
   }
 }
