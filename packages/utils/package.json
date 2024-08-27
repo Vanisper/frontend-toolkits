@@ -1,0 +1,14 @@
+{
+  "name": "@frontend-toolkits/utils",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "picocolors": "^1.0.1",
+    "rollup-plugin-license": "^3.5.2"
+  }
+}
