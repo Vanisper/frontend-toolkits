@@ -15,7 +15,8 @@ const commitMsg_FistLine = commitMsg.split('\n')[0];
 // https://github.com/conventional-changelog/commitlint/issues/880#issuecomment-1361000193 // Test URL: https://regex101.com/r/gYkG99/1
 // 定义正则表达式 /^(?::\w*:|(?:\ud83c[\udf00-\udfff])|(?:\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55])  \s  (?<type>\w*)  (?:\((?<scope>.*)\))? !?  :  \s  (?<subject>(?:(?!#).)*(?:(?!\s).))  (?:\s\(?(?<ticket>#\d*)\)?)?  $/
 // const headerPattern = /^(?::\w*:|(?:\ud83c[\udf00-\udfff])|(?:\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55])\s(?<type>\w*)(?:\((?<scope>.*)\))?!?:\s(?<subject>(?:(?!#).)*(?:(?!\s).))(?:\s\(?(?<ticket>#\d*)\)?)?$/; // :start: chore(scope): test #123
-const headerPattern = /^(?<type>\w*)(?:\((?<scope>.*)\))?!?:\s(?:(?::\w*:|(?:\ud83c[\udf00-\udfff])|(?:\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55])\s)?(?<subject>(?:(?!#).)*(?:(?!\s).))(?:\s\(?(?<ticket>#\d*)\)?)?$/; // chore(scope): test #123
+// const headerPattern = /^(?<type>\w*)(?:\((?<scope>.*)\))?!?:\s(?:(?::\w*:|(?:\ud83c[\udf00-\udfff])|(?:\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55])\s)?(?<subject>(?:(?!#).)*(?:(?!\s).))(?:\s\(?(?<ticket>#\d*)\)?)?$/; // chore(scope): test #123
+const headerPattern = /^(?<type>\w*)(?:\((?<scope>.*)\))?!?:\s(?:(?<emoji>:\w*:|(?:\ud83c[\udf00-\udfff])|(?:\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55])\s)?(?<subject>(?:(?!#).)*(?:(?!\s).))(?:\s\(?(?<ticket>#\d*)\)?)?$/; // chore(scope): :emoji: test #123
 
 // 提取提交类型
 const commitTypeMatch = commitMsg_FistLine.trim().match(headerPattern);
