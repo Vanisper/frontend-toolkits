@@ -5,7 +5,7 @@ import { PACKAGE_NAME } from './constant'
  * 清除console.log
  * @returns
  */
-export function PlusProComponentsClearConsole(): Plugin {
+export function ClearConsolePlugin(): Plugin {
   const reg = /(console.log()(.*)())/g
   return {
     name: `${PACKAGE_NAME}-clear-console-plugin`,

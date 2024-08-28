@@ -4,7 +4,7 @@ import type { Plugin } from "rollup";
  * 清除console.log
  * @returns
  */
-export function PlusProComponentsClearConsole(): Plugin {
+export function ClearConsolePlugin(): Plugin {
   const reg = /(console.log()(.*)())/g;
   return {
     name: "clear-console-plugin",

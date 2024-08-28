@@ -1,33 +1,6 @@
-import { dirname, resolve } from 'node:path'
-import fs from 'node:fs'
+import { resolve } from 'node:path'
 import { PACKAGE_NAME } from './constant';
-
-// 使用正则表达式匹配根目录
-const isRoot = (path: string) => {
-    // 适配 Unix 系统根目录和 Windows 系统盘符根目录
-    const unixRoot = /^\/$/;
-    const windowsRoot = /^[a-zA-Z]:\\$/;
-    return unixRoot.test(path) || windowsRoot.test(path);
-};
-
-/**
- * 查找项目根目录
- * 查找当前目录是否存在 package.json
- * 如果不存在，则向上查找
- */
-export function findRootPath() {
-    let root: string | undefined = resolve(__dirname, '.');
-    process.env.NODE_ENV
-    while (!fs.existsSync(resolve(root, 'package.json'))) {
-        // 如果已经到了根目录，则路径设置为undefined
-        if (isRoot(root)) {
-            root = undefined
-            break
-        }
-        root = dirname(root);
-    }
-    return root
-}
+import { findRootPath } from './_utils';
 
 /** 项目根目录 `/`  */
 export const projRoot = findRootPath() || resolve(__dirname, '../../')
