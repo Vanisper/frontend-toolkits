@@ -9,6 +9,9 @@
     "format": "biome format --write",
     "clear": "rimraf 'packages/*/{lib,node_modules}' && rimraf node_modules"
   },
+  "engines": {
+    "node": "20 || >=22"
+  },
   "config": {
     "commitizen": {
       "path": "@commitlint/cz-commitlint"

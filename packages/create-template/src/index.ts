@@ -287,6 +287,7 @@ async function init() {
     );
     pkg.scripts = { ...pkg.scripts, ...nicePkg.scripts };
     pkg.config = { ...pkg.config, ...nicePkg.config };
+    pkg.engines = { ...pkg.engines, ...nicePkg.engines };
     pkg.dependencies = { ...pkg.dependencies, ...nicePkg.dependencies };
     pkg.devDependencies = {
       ...pkg.devDependencies,
