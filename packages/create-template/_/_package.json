@@ -7,7 +7,7 @@
     "lint:check": "biome check --write",
     "lint:fix": "biome check --write --unsafe",
     "format": "biome format --write",
-    "clear": "rimraf 'packages/*/{lib,node_modules}' && rimraf node_modules"
+    "clear": "pnpm recursive exec -- rimraf node_modules && rimraf node_modules"
   },
   "engines": {
     "node": "20 || >=22"
