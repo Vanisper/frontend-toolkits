@@ -3,10 +3,10 @@ name: Create Release Tag
 on:
   push:
     tags:
-    #   - 'v*' # 推送标签，比如 v1.0, v20.15.10
-    # 推送标签，比如 xxx/v1.0, xxx/v20.15.10, v1.0, v20.15.10
-    - '*/v*'
-
+      - '**/v*'
+      - 'v*'
+  workflow_dispatch: # 允许手动触发
+  
 jobs:
   build:
     name: 创建发布
