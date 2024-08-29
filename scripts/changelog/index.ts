@@ -182,7 +182,7 @@ const main = async () => {
     }
 
     const getFormatContent = (item: Log) => {
-      return `* **${item.scope || 'all'}:**${item.subject}([${item.sha}](${target}commit/${
+      return `* **${item.scope || 'all'}:** ${item.subject}([${item.sha}](${target}commit/${
         item.sha
       })) by@${item.author}\n`
     }
@@ -191,7 +191,7 @@ const main = async () => {
       .filter(item => item.type === 'feat' || item.subject.includes('Merge'))
       .map(
         item =>
-          `* **${item.scope || 'all'}:**${
+          `* **${item.scope || 'all'}:** ${
             item.subject.includes('Merge') ? ' ' + replacePull(item.subject) : item.subject
           }([${item.sha}](${target}commit/${item.sha})) by@${item.author}\n`
       )
