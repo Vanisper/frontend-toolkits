@@ -124,11 +124,12 @@ const handleTagData = async (): Promise<Tag[]> => {
   let tagData: Tag[] = []
   for (const item of tags) {
     const { success, data } = await execPromise(
-      `git show ${item.tag} -q --pretty=format:"$id=%H&author=%an&date=%ad&sha=%h$"     --date=format:"%Y/%m/%d %H:%M:%S"`
+      `git show ${item.tag} -q --pretty=format:"%id=%H&author=%an&date=%ad&sha=%h%"     --date=format:"%Y/%m/%d %H:%M:%S"`
     )
     errorHandle(success, 'tag show error')
 
-    const temp = data?.slice(data.indexOf('$') + 1, data.lastIndexOf('$')) || ''
+    const temp = data?.slice(data.indexOf('%') + 1, data.lastIndexOf('%')) || ''
+
     const tag = qs.parse(temp)
     tagData.push({ ...item, ...tag } as unknown as Tag)
   }
