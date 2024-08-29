@@ -113,5 +113,6 @@ jobs:
         id: release_tag
         uses: ncipollo/release-action@v1
         with:
+          tag: ${{ steps.get_tags.outputs.current_tag }}
           generateReleaseNotes: "false"  # 禁用自动生成发布说明
           bodyFile: changelog.md
