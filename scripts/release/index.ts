@@ -120,11 +120,15 @@ const getVersion = async (currentVersion: string, pkgName: string) => {
 }
 
 /** 提交 */
-async function commit(version?: string) {
+interface CommitInfo {
+  version?: string
+  name?: string
+}
+async function commit({ version, name }: CommitInfo = {}) {
   try {
     // 打tag
     if (version) {
-      await run('git', ['tag', '-a', `v${version}`, '-m', `v${version}`])
+      await run('git', ['tag', '-a', `${name}/v${version}`, '-m', `v${version}`])
     }
 
     // 生成changelog
@@ -202,7 +206,7 @@ const main = async () => {
   
   if (selectPackages.includes(PACKAGE_NAME)) {
     const mainPkg = JSON.parse(fs.readFileSync(projPackage, 'utf-8'))
-    commit(mainPkg.version)
+    commit({ version: mainPkg.version, name: mainPkg.name })
   } else {
     commit()
   }
