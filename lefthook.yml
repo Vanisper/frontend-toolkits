@@ -53,4 +53,4 @@ pre-push:
 commit-msg:
   commands:
     check:
-      run: npx --no-install commitlint --edit {0} && node ./scripts/githooks/commit-hook.js {0}
+      run: npx --no-install commitlint --edit {0} && node ./scripts/githooks/commit-hook.mjs {0}
