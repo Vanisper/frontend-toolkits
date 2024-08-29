@@ -6,7 +6,7 @@ on:
       - '**/v*'
       - 'v*'
   workflow_dispatch: # 允许手动触发
-  
+
 jobs:
   build:
     name: 创建发布
@@ -32,11 +32,19 @@ jobs:
           set -e
           current_tag="${{ steps.get_tags.outputs.current_tag }}"
           previous_tag="${{ steps.get_tags.outputs.previous_tag }}"
+
+          if [ -z "$previous_tag" ]; then
+            echo "No previous tag found, using initial commit."
+            previous_tag=$(git rev-list --max-parents=0 HEAD)
+          fi
+
           commit_messages=$(git log --pretty=format:"%s %h" "$previous_tag".."$current_tag" | grep -E 'feat|fix|docs|perf')
+
           feat_messages=$(echo "$commit_messages" | grep 'feat' || true)
           fix_messages=$(echo "$commit_messages" | grep 'fix' || true)
           docs_messages=$(echo "$commit_messages" | grep 'docs' || true)
           perf_messages=$(echo "$commit_messages" | grep 'perf' || true)
+          
           echo "::set-output name=feat_messages::${feat_messages[@]}"
           echo "::set-output name=fix_messages::${fix_messages[@]}"
           echo "::set-output name=docs_messages::${docs_messages[@]}"
