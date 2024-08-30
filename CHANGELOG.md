@@ -1,4 +1,4 @@
-## [frontend-toolkits/v0.0.1](https://github.com/Vanisper/frontend-toolkits/commit/b6f4817) (2024-08-30)
+## [frontend-toolkits/v0.0.1](https://github.com/Vanisper/frontend-toolkits/commit/af2fb4e) (2024-08-30)
 
 
 ### ✨ Features
