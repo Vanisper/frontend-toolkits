@@ -20,7 +20,9 @@ jobs:
         id: get_tags
         run: |
           git fetch --prune --unshallow
-          tags=($(git tag -l --sort=-version:refname))
+          # tags=($(git tag -l --sort=-version:refname))
+          # 获取所有标签并按标签创建时间降序排序
+          tags=($(git tag -l --sort=-taggerdate))
           current_tag=${tags[0]}
           previous_tag=${tags[1]}
           echo "::set-output name=current_tag::$current_tag"
