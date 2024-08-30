@@ -1,3 +1,26 @@
+## [@frontend-toolkits/create-template/v0.0.2-rc.1](https://github.com/Vanisper/frontend-toolkits/compare/frontend-toolkits/v0.0.1...@frontend-toolkits/create-template/v0.0.2-rc.1) (2024-08-30)
+
+
+### ✨ Features
+
+* **packages/create-template:** 模版创建新增 `release`、`changelog` 脚本模块([d250e2b](https://github.com/Vanisper/frontend-toolkits/commit/d250e2b)) by@Vanisper
+
+
+
+
+### 🐛 Bug Fixes
+
+* **workflows/release.yml:** 更换获取tag列表的排序方式([69e3cc3](https://github.com/Vanisper/frontend-toolkits/commit/69e3cc3)) by@Vanisper
+* **workflows/release.yml:** 适配tag的不同命名空间([c8cb0a1](https://github.com/Vanisper/frontend-toolkits/commit/c8cb0a1)) by@Vanisper
+* **workflows/release.yml:** 修复tag获取不到的问题([568fe97](https://github.com/Vanisper/frontend-toolkits/commit/568fe97)) by@Vanisper
+* **workflows/release.yml:** 修复反引号字符串被解析成可执行程序的问题([801b84c](https://github.com/Vanisper/frontend-toolkits/commit/801b84c)) by@Vanisper
+* **workflows/release.yml:** 适配只有一个tag的情况([d5b8c0f](https://github.com/Vanisper/frontend-toolkits/commit/d5b8c0f)) by@Vanisper
+* **workflows/release.yml:** 修正发布工作流触发逻辑([538c276](https://github.com/Vanisper/frontend-toolkits/commit/538c276)) by@Vanisper
+* **ci:changelog:** 修复生成的 `changelog.md` 加粗样式无效的问题([45aedab](https://github.com/Vanisper/frontend-toolkits/commit/45aedab)) by@Vanisper
+
+
+
+
 ## [frontend-toolkits/v0.0.1](https://github.com/Vanisper/frontend-toolkits/commit/af2fb4e) (2024-08-30)
 
 
