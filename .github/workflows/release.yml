@@ -33,6 +33,16 @@ jobs:
           current_tag="${{ steps.get_tags.outputs.current_tag }}"
           previous_tag="${{ steps.get_tags.outputs.previous_tag }}"
 
+          # 提取标签前缀
+          current_prefix=$(echo "$current_tag" | sed 's/\(.*\)\/.*/\1/')
+          previous_prefix=$(echo "$previous_tag" | sed 's/\(.*\)\/.*/\1/')
+
+          # 检查标签前缀是否相同
+          if [ "$current_prefix" != "$previous_prefix" ]; then
+            echo "Tags have different prefixes, using initial commit."
+            previous_tag=$(git rev-list --max-parents=0 HEAD)
+          fi
+
           if [ -z "$previous_tag" ]; then
             echo "No previous tag found, using initial commit."
             previous_tag=$(git rev-list --max-parents=0 HEAD)
