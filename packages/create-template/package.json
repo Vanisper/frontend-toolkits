@@ -12,6 +12,14 @@
     "template-*",
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vanisper/frontend-toolkits.git"
+  },
+  "homepage": "https://github.com/Vanisper/frontend-toolkits/tree/main/packages/create-template#readme",
+  "bugs": {
+    "url": "https://github.com/Vanisper/frontend-toolkits/issues"
+  },
   "scripts": {
     "dev": "unbuild --stub",
     "build": "unbuild",
