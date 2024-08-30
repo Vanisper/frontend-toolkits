@@ -20,7 +20,9 @@ jobs:
         id: get_tags
         run: |
           git fetch --prune --unshallow
-          tags=($(git tag -l --sort=-version:refname))
+          # tags=($(git tag -l --sort=-version:refname))
+          # 获取所有标签并按标签创建时间降序排序
+          tags=($(git tag -l --sort=-taggerdate))
           current_tag=${tags[0]}
           previous_tag=${tags[1]}
           echo "::set-output name=current_tag::$current_tag"
@@ -32,6 +34,16 @@ jobs:
           set -e
           current_tag="${{ steps.get_tags.outputs.current_tag }}"
           previous_tag="${{ steps.get_tags.outputs.previous_tag }}"
+
+          # 提取标签前缀
+          current_prefix=$(echo "$current_tag" | sed 's/\(.*\)\/.*/\1/')
+          previous_prefix=$(echo "$previous_tag" | sed 's/\(.*\)\/.*/\1/')
+
+          # 检查标签前缀是否相同
+          if [ "$current_prefix" != "$previous_prefix" ]; then
+            echo "Tags have different prefixes, using initial commit."
+            previous_tag=$(git rev-list --max-parents=0 HEAD)
+          fi
 
           if [ -z "$previous_tag" ]; then
             echo "No previous tag found, using initial commit."
