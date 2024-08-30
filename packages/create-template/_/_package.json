@@ -7,7 +7,9 @@
     "lint:check": "biome check --write",
     "lint:fix": "biome check --write --unsafe",
     "format": "biome format --write",
-    "clear": "pnpm recursive exec -- rimraf node_modules && rimraf node_modules"
+    "clear": "pnpm recursive exec -- rimraf node_modules && rimraf node_modules",
+    "release": "tsx scripts/release/index.ts",
+    "changelog": "tsx scripts/changelog/index.ts"
   },
   "engines": {
     "node": "20 || >=22"
@@ -23,11 +25,23 @@
     "@commitlint/config-conventional": "^19.2.2",
     "@commitlint/cz-commitlint": "^19.4.0",
     "@commitlint/types": "^19.0.3",
-    "commitizen": "^4.3.0",
-    "typescript": "^5.5.3",
+    "@inquirer/prompts": "^5.3.8",
+    "@pnpm/find-workspace-packages": "^6.0.9",
+    "@types/lodash": "^4.17.7",
     "@types/node": "^20.11.24",
+    "@types/qs": "^6.9.15",
+    "@types/semver": "^7.5.8",
+    "commitizen": "^4.3.0",
+    "consola": "^3.2.3",
+    "dayjs": "^1.11.13",
+    "execa": "^9.3.1",
+    "typescript": "^5.5.3",
+    "rollup": "^4.21.0",
+    "semver": "^7.6.3",
+    "tsx": "^4.19.0",
     "lefthook": "^1.7.14",
-    "rimraf": "^6.0.1",
-    "rollup": "^4.21.0"
+    "lodash": "^4.17.21",
+    "qs": "^6.13.0",
+    "rimraf": "^6.0.1"
   }
 }
