@@ -50,7 +50,8 @@ jobs:
             previous_tag=$(git rev-list --max-parents=0 HEAD)
           fi
 
-          commit_messages=$(git log --pretty=format:"%s %h" "$previous_tag".."$current_tag" | grep -E 'feat|fix|docs|perf')
+          messages=$(git log --pretty=format:"%s %h" "$previous_tag".."$current_tag")
+          commit_messages=$(echo "$messages" | grep -E 'feat|fix|docs|perf' || true)
 
           feat_messages=$(echo "$commit_messages" | grep 'feat' || true)
           fix_messages=$(echo "$commit_messages" | grep 'fix' || true)
