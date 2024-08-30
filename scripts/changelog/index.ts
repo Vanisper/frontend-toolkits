@@ -160,25 +160,33 @@ const main = async () => {
 
   const logs = await handleLogData()
   const tags = await handleTagData()
-  
-  const res = tags.map(item => {
-    const start = logs.findIndex(i => i.id === item.id)
-    const end = logs.findIndex(i => i.id === item.pre?.id)
-    const data = cloneDeep(logs).slice(start, end === -1 ? logs.length : end)
-    return {
-      ...item,
-      content: data
-    }
-  })
+
+  const res: (Partial<Tag> & { content: Log[] })[] = [];
+
+  if (!tags.length) { // 没有tag | 使用所有的commit
+    res.push({ content: logs });
+  } else {
+    res.push(...tags.map((item) => {
+      const start = logs.findIndex((i) => i.id === item.id);
+      const end = logs.findIndex((i) => i.id === item.pre?.id);
+      const data = cloneDeep(logs).slice(start, end === -1 ? logs.length : end);
+      return {
+        ...item,
+        content: data,
+      };
+    }));
+  }
 
   const mdContent = res.map(item => {
     let md = ''
-    if (!item.pre?.tag) {
-      md = `## [${item.tag}](${target}commit/${item.sha}) (${days(item.date).format('YYYY-MM-DD')})`
-    } else {
-      md = `## [${item.tag}](${target}compare/${item.pre?.tag}...${item.tag}) (${days(
-        item.date
-      ).format('YYYY-MM-DD')})`
+    if (item.id) {
+      if (!item.pre?.tag) {
+        md = `## [${item.tag}](${target}commit/${item.sha}) (${days(item.date).format('YYYY-MM-DD')})`
+      } else {
+        md = `## [${item.tag}](${target}compare/${item.pre?.tag}...${item.tag}) (${days(
+          item.date
+        ).format('YYYY-MM-DD')})`
+      }
     }
 
     const getFormatContent = (item: Log) => {
