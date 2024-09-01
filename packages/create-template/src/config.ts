@@ -16,7 +16,7 @@ Available templates:
 ${green("vue-ts         basic")}`;
 
 /** 工程化项目模版标签 */
-export const engineeringTag = "nice";
+export const engineeringTag = "engineering";
 
 export const FRAMEWORKS: Framework[] = [
   {
