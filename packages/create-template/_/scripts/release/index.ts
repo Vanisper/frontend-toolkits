@@ -1,26 +1,17 @@
 import fs from "node:fs";
 import path from "node:path";
 import { checkbox, input, select } from "@inquirer/prompts";
-import { findWorkspacePackages } from "@pnpm/find-workspace-packages";
 import consola from "consola";
-import { execa } from "execa";
 import semver from "semver";
 import { PACKAGE_NAME } from "../utils/constant";
-import { projPackage, projRoot } from "../utils/paths";
-import { genVersion } from "./gen-version";
+import { projPackage } from "../utils/paths";
+import { getWorkspaceList } from "./_utils";
 
 type SemverRow = {
   release: semver.ReleaseType;
   optionsOrLoose?: boolean | semver.Options | string;
   identifier?: string;
 };
-
-// 打印
-const echo = (msg: string) => consola.success(msg);
-
-// 运行脚本
-const run = (bin: string, args: string[], opts = {}) =>
-  execa(bin, args, { stdio: "inherit", ...opts });
 
 //  版本列表
 const versionIncrements: SemverRow[] = [
@@ -59,14 +50,6 @@ const versionIncrements: SemverRow[] = [
     identifier: "1",
   },
 ];
-
-// 获取工作空间包
-const getWorkspaceList = async (dir = projRoot) => {
-  const pkgs = await findWorkspacePackages(projRoot);
-  return pkgs
-    .filter((pkg) => pkg.dir.startsWith(dir))
-    .filter((pkg) => pkg.manifest.private !== true && pkg.manifest.name);
-};
 
 /**
  * 更新版本号
@@ -118,49 +101,6 @@ const getVersion = async (currentVersion: string, pkgName: string) => {
 
   return version;
 };
-
-/** 提交 */
-interface CommitInfo {
-  version?: string;
-  name?: string;
-}
-async function commit({ version, name }: CommitInfo = {}) {
-  try {
-    // 打tag
-    if (version) {
-      await run("git", [
-        "tag",
-        "-a",
-        `${name}/v${version}`,
-        "-m",
-        `${name}/v${version}`,
-      ]);
-    }
-
-    // 生成changelog
-    if (version) {
-      await run("npm", ["run", "--name", "changelog"]);
-    }
-
-    // 更新导出 版本号
-    if (version) {
-      await genVersion(version);
-    }
-
-    await run("git", ["add", "-A"]);
-    await run("npm", ["run", "--name", "commit"]);
-    await run("git", ["pull"]);
-
-    // push tag ｜ TODO: 暂时不自动push
-    // if (version) {
-    //   await run('git', ['push', '--tags'])
-    // }
-    // await run('git', ['push'])
-    echo(`\ncommit success ${version}`);
-  } catch (error: any) {
-    throw new Error(error);
-  }
-}
 
 const main = async () => {
   const workspaceList = await getWorkspaceList();
@@ -218,13 +158,6 @@ const main = async () => {
     // consola.success(`Successfully updated version ${name}!`)
     consola.success(`成功更新版本 ${name}！`);
   }
-
-  if (selectPackages.includes(PACKAGE_NAME)) {
-    const mainPkg = JSON.parse(fs.readFileSync(projPackage, "utf-8"));
-    commit({ version: mainPkg.version, name: PACKAGE_NAME });
-  } else {
-    commit();
-  }
 };
 
 main()
@@ -233,4 +166,5 @@ main()
   })
   .catch((err) => {
     console.log(err);
+    process.exit(1);
   });
