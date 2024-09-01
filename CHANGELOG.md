@@ -1,3 +1,17 @@
+## [@frontend-toolkits/create-template/v0.0.2-alpha.2](https://github.com/Vanisper/frontend-toolkits/compare/@frontend-toolkits/create-template/v0.0.2-alpha.1...@frontend-toolkits/create-template/v0.0.2-alpha.2) (2024-09-01)
+
+
+
+
+
+
+### 🐛 Bug Fixes
+
+* **@frontend-toolkits/create-template:package.json:** 修复 `npx` 运行报错的问题([9bfb5fe](https://github.com/Vanisper/frontend-toolkits/commit/9bfb5fe)) by@Vanisper
+
+
+
+
 ## [@frontend-toolkits/create-template/v0.0.2-alpha.1](https://github.com/Vanisper/frontend-toolkits/compare/@frontend-toolkits/create-template/v0.0.2-rc.1...@frontend-toolkits/create-template/v0.0.2-alpha.1) (2024-09-01)
 
 
