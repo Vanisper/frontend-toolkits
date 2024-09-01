@@ -7,6 +7,7 @@
 
 ### 🐛 Bug Fixes
 
+* **workflows/release.yml:** git-tag change `--sort=-taggerdate` to `--sort=-creatordate`([8dca377](https://github.com/Vanisper/frontend-toolkits/commit/8dca377)) by@Vanisper
 * **@frontend-toolkits/create-template:package.json:** 修复 `npx` 运行报错的问题([9bfb5fe](https://github.com/Vanisper/frontend-toolkits/commit/9bfb5fe)) by@Vanisper
 
 
