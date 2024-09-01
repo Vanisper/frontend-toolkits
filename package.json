@@ -20,6 +20,7 @@
     "format": "biome format --write",
     "clear": "pnpm recursive exec -- rimraf node_modules && rimraf node_modules",
     "release": "tsx scripts/release/index.ts",
+    "release:commit": "tsx scripts/release/commit.ts",
     "changelog": "tsx scripts/changelog/index.ts"
   },
   "config": {
