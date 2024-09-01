@@ -1,3 +1,22 @@
+## [@frontend-toolkits/create-template/v0.0.2-alpha.1](https://github.com/Vanisper/frontend-toolkits/compare/@frontend-toolkits/create-template/v0.0.2-rc.1...@frontend-toolkits/create-template/v0.0.2-alpha.1) (2024-09-01)
+
+
+### ✨ Features
+
+* **@frontend-toolkits/create-template:release.yml:** 同步 `release.yml` 工作流内容([4e5fe7d](https://github.com/Vanisper/frontend-toolkits/commit/4e5fe7d)) by@Vanisper
+
+
+
+
+### 🐛 Bug Fixes
+
+* **workflow/release.yml:** 修复release工作流因 `grep` 匹配导致的崩溃问题([9bb0c64](https://github.com/Vanisper/frontend-toolkits/commit/9bb0c64)) by@Vanisper
+* **@frontend-toolkits/create-template:scripts/changelog:** 模版同步实现：日志生成适配没有tag的情况([7e49234](https://github.com/Vanisper/frontend-toolkits/commit/7e49234)) by@Vanisper
+* **scripts/changelog:** 日志生成适配没有tag的情况([33195a7](https://github.com/Vanisper/frontend-toolkits/commit/33195a7)) by@Vanisper
+
+
+
+
 ## [@frontend-toolkits/create-template/v0.0.2-rc.1](https://github.com/Vanisper/frontend-toolkits/compare/frontend-toolkits/v0.0.1...@frontend-toolkits/create-template/v0.0.2-rc.1) (2024-08-30)
 
 
