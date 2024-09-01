@@ -1,3 +1,17 @@
+## [@frontend-toolkits/create-template/v0.0.2-alpha.3](https://github.com/Vanisper/frontend-toolkits/compare/@frontend-toolkits/create-template/v0.0.2-alpha.2...@frontend-toolkits/create-template/v0.0.2-alpha.3) (2024-09-02)
+
+
+### ✨ Features
+
+* **@frontend-toolkits/create-template:release-ci:** 模版创建工具同步新增 `release-ci` 相关逻辑、配置([f9662a4](https://github.com/Vanisper/frontend-toolkits/commit/f9662a4)) by@Vanisper
+
+
+
+
+
+
+
+
 ## [@frontend-toolkits/create-template/v0.0.2-alpha.2](https://github.com/Vanisper/frontend-toolkits/compare/@frontend-toolkits/create-template/v0.0.2-alpha.1...@frontend-toolkits/create-template/v0.0.2-alpha.2) (2024-09-01)
 
 
