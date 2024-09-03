@@ -26,8 +26,10 @@ npx --no-install @frontend-toolkits/create-template # 强制使用本地版本�
 
 ### 前端
 
-* [X] vanilla-ts
-* [X] vue-ts
+* [X] vanilla-vite-ts
+* [X] vue-vite-ts
+* [ ] [electron-vite-ts](https://electron-vite.org)
+* [ ] [web-extension-wxt](https://wxt.dev)
 
 ### 后端
 
