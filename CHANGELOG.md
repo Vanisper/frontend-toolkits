@@ -1,9 +1,28 @@
+## [@frontend-toolkits/create-template/v0.0.2-alpha.4](https://github.com/Vanisper/frontend-toolkits/compare/@frontend-toolkits/create-template/v0.0.2-alpha.3...@frontend-toolkits/create-template/v0.0.2-alpha.4) (2024-09-03)
+
+
+
+
+
+
+
+
+
+
+### 📚 Documentation Update
+
+* **@frontend-toolkits/create-template:** 更新 `create-template` 模版待办事项([0364aa7](https://github.com/Vanisper/frontend-toolkits/commit/0364aa7)) by@Vanisper
+* **@frontend-toolkits/create-template:** 更新 `create-template` 的使用说明([df67b7f](https://github.com/Vanisper/frontend-toolkits/commit/df67b7f)) by@Vanisper
+
+
 ## [@frontend-toolkits/create-template/v0.0.2-alpha.3](https://github.com/Vanisper/frontend-toolkits/compare/@frontend-toolkits/create-template/v0.0.2-alpha.2...@frontend-toolkits/create-template/v0.0.2-alpha.3) (2024-09-02)
 
 
 ### ✨ Features
 
 * **@frontend-toolkits/create-template:release-ci:** 模版创建工具同步新增 `release-ci` 相关逻辑、配置([f9662a4](https://github.com/Vanisper/frontend-toolkits/commit/f9662a4)) by@Vanisper
+
+
 
 
 
@@ -27,6 +46,11 @@
 
 
 
+### 📚 Documentation Update
+
+* **CHANGELOG.md:** update `CHANGELOG.md`([d6ecba1](https://github.com/Vanisper/frontend-toolkits/commit/d6ecba1)) by@Vanisper
+
+
 ## [@frontend-toolkits/create-template/v0.0.2-alpha.1](https://github.com/Vanisper/frontend-toolkits/compare/@frontend-toolkits/create-template/v0.0.2-rc.1...@frontend-toolkits/create-template/v0.0.2-alpha.1) (2024-09-01)
 
 
@@ -42,6 +66,8 @@
 * **workflow/release.yml:** 修复release工作流因 `grep` 匹配导致的崩溃问题([9bb0c64](https://github.com/Vanisper/frontend-toolkits/commit/9bb0c64)) by@Vanisper
 * **@frontend-toolkits/create-template:scripts/changelog:** 模版同步实现：日志生成适配没有tag的情况([7e49234](https://github.com/Vanisper/frontend-toolkits/commit/7e49234)) by@Vanisper
 * **scripts/changelog:** 日志生成适配没有tag的情况([33195a7](https://github.com/Vanisper/frontend-toolkits/commit/33195a7)) by@Vanisper
+
+
 
 
 
@@ -67,6 +93,12 @@
 * **ci:changelog:** 修复生成的 `changelog.md` 加粗样式无效的问题([45aedab](https://github.com/Vanisper/frontend-toolkits/commit/45aedab)) by@Vanisper
 
 
+
+
+### 📚 Documentation Update
+
+* **CHANGELOG.md:** 更新变更日志([7c5ccf8](https://github.com/Vanisper/frontend-toolkits/commit/7c5ccf8)) by@Vanisper
+* **CHANGELOG.md:** 重新生成变更日志([78f1bde](https://github.com/Vanisper/frontend-toolkits/commit/78f1bde)) by@Vanisper
 
 
 ## [frontend-toolkits/v0.0.1](https://github.com/Vanisper/frontend-toolkits/commit/af2fb4e) (2024-08-30)
@@ -95,5 +127,10 @@
 * **root:package.json:** 修复git-hook准备工作运行命令([029703d](https://github.com/Vanisper/frontend-toolkits/commit/029703d)) by@Vanisper
 
 
+
+
+### 📚 Documentation Update
+
+* **root:LICENSE:** 添加MIT开源声明文件([7db9eff](https://github.com/Vanisper/frontend-toolkits/commit/7db9eff)) by@Vanisper
 
 
