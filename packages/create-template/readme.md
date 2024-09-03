@@ -1,8 +1,18 @@
-# @frontend-toolkits/create-template
+# @frontend-toolkits/create-template <a href="https://www.npmjs.com/package/@frontend-toolkits/create-template"><img src="https://img.shields.io/npm/v/@frontend-toolkits/create-template" alt="npm package"></a>
 
 > 本项目基于 [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite)，感谢开源生态🙏！
 >
 > 用于生成本项目推荐的开发模板
+
+## 使用
+
+```bash
+npx @frontend-toolkits/create-template
+
+npx --ignore-existing @frontend-toolkits/create-template # 强制使用远程版本
+
+npx --no-install @frontend-toolkits/create-template # 强制使用本地版本，不存在则报错
+```
 
 ## （计划）支持模版类型
 
