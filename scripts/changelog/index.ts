@@ -195,6 +195,7 @@ const main = async () => {
       })) by@${item.author}\n`
     }
 
+    /** 功能新增 */
     const featData = item.content
       .filter(item => item.type === 'feat' || item.subject.includes('Merge'))
       .map(
@@ -204,16 +205,25 @@ const main = async () => {
           }([${item.sha}](${target}commit/${item.sha})) by@${item.author}\n`
       )
 
+    /** 一些修复 */
     const fixData = item.content
       .filter(item => item.type === 'fix')
       .map(item => getFormatContent(item))
 
+    /** 代码重构 */
     const refactorData = item.content
       .filter(item => item.type === 'refactor')
       .map(item => getFormatContent(item))
 
+
+    /** 性能优化 */
     const perfData = item.content
       .filter(item => item.type === 'perf')
+      .map(item => getFormatContent(item))
+
+    /** 文档变更 */
+    const docsData = item.content
+      .filter(item => item.type === 'docs')
       .map(item => getFormatContent(item))
 
     const content =
@@ -226,6 +236,8 @@ const main = async () => {
       (fixData.length ? `### 🐛 Bug Fixes\n\n${fixData.join('')}` : '') +
       '\n\n' +
       (refactorData.length ? `### ♻️ Code Refactoring\n\n${refactorData.join('')}` : '') +
+      '\n\n' +
+      (docsData.length ? `### 📚 Documentation Update\n\n${docsData.join('')}` : '') +
       '\n\n'
 
     return content
